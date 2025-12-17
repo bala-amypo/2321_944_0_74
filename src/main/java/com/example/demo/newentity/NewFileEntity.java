@@ -31,8 +31,10 @@ public class NewFileEntity{
     public void setName(String name){
         this.name=name;
     }
-    public String Email(){
+    public String getEmail(){
+        return email;
+    }
+    public void  setEmail(String email){
         this.email=email;
     }
-    public void  setEmail()
 } 
