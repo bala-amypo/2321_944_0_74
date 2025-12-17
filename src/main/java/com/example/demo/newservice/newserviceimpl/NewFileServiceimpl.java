@@ -4,6 +4,7 @@ import org.framework.stereotype.Service;
 import com.example.demo.newservice.NewFileEntity;
 import com.example.demo.newservice.NewFileService;
 public class NewFileServiceImpl implements NewFileService{
+    private final NewFIleRepo rep;
     @Override
     public NewFileEntity savedata(NewFileEntity newfile){
 
@@ -16,4 +17,6 @@ public class NewFileServiceImpl implements NewFileService{
     public List<NewFileEntity> getall(){
 
     }
+    @Override
+    public NewFileEntity update(Long id,NewFileEntity newfile)
 }
