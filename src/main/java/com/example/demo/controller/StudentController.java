@@ -12,20 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.service.StudentService;
 @RestController
-@RequestMapping("/files")
-public class NewFileController {
+public class StudentController {
 
     @Autowired
-    private NewFileService service;
+    Studentservice src;
 
     @GetMapping
     public List<NewFileEntity> getAll() {
         return service.getAll();
     }
 
-    @PostMapping
-    public NewFileEntity save(@RequestBody NewFileEntity file) {
-        return service.save(file);
+    @PostMapping("/get")
+    public List<StudentEntity> getdata() {
+        return src.retdata;
     }
 
     @PutMapping("/{id}")

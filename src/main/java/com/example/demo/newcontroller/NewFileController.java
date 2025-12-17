@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.newentity.NewFileEntity;
-import com.example.demo.service.NewFileService;
+import com.example.demo.newservice.NewFileService;
 @RestController
 @RequestMapping("/files")
 public class NewFileController {
