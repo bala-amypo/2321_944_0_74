@@ -11,22 +11,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.service.StudentService;
-
 @RestController
-public class StudentController {
+@RequestMapping("/files")
+public class NewFileController {
+
     @Autowired
-    StudentService src;
-    @PostMapping("/post")
-    public StudentEntity postdata(@RequestBody StudentEntity st){
-        return src.savedata(st);
+    private NewFileService service;
 
+    @GetMapping
+    public List<NewFileEntity> getAll() {
+        return service.getAll();
     }
-    @GetMapping("/get")
-    public List<StudentEntity> getdata(){
-        return src.retdata();
 
+    @PostMapping
+    public NewFileEntity save(@RequestBody NewFileEntity file) {
+        return service.save(file);
     }
-    @GetMapping("/getid/{id}")
-    public  StudentEntity getIdVal(@PathVariable int id){
-        return src.id(id);
+
+    @PutMapping("/{id}")
+    public NewFileEntity update(
+            @PathVariable Long id,
+            @RequestBody NewFileEntity file) {
+        return service.update(id, file);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
+}
