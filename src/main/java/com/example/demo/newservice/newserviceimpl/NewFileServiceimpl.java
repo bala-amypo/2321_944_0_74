@@ -21,11 +21,15 @@ public class NewFileServiceImpl implements NewFileService{
         return rep.getall();// all datas can get
     }
     @Override
+    
     public NewFileEntity update(Long id,NewFileEntity newfile){
-        return rep.replace(id,newfile);// retrieve id from newfile and update
+        NewFileEntity existing=getidval(id);
+        existing.setName(newfile.getName());
+        existing.setEmail(newfile.getEmail());
+        return rep.save(existing);// retrieve id from newfile and update
     }
     @Override
     public void delete(Long id){
-        return rep.remove(id);// remove the column id
+        rep.delete(Long id);// remove the column id
     }
 }
