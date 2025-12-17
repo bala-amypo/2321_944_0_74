@@ -12,31 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.newentity.NewFileEntity;
 import com.example.demo.newservice.NewFileService;
 @RestController
-@RequestMapping("/files")
+@RequestMapping("/students")
 public class NewFileController {
-
-    @Autowired
-    private NewFileService service;
-
-    @GetMapping
-    public List<NewFileEntity> getAll() {
-        return service.getAll();
+    private final NewFileService service;
+    public NewFileController(NewFileService service){
+        this.service=service;
     }
-
     @PostMapping
-    public NewFileEntity save(@RequestBody NewFileEntity file) {
-        return service.save(file);
+    public ResponseEntity<Student> createStudent(@Valid @RequestBodyStudent  service){
+        return new
     }
-
-    @PutMapping("/{id}")
-    public NewFileEntity update(
-            @PathVariable Long id,
-            @RequestBody NewFileEntity file) {
-        return service.update(id, file);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
-    }
-}
