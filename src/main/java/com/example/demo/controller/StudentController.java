@@ -17,25 +17,18 @@ public class StudentController {
     @Autowired
     Studentservice src;
 
-    @GetMapping
-    public List<NewFileEntity> getAll() {
-        return service.getAll();
+    @PostMapping
+    public StudentEntity postdata(@RequestBody StudentEntity st) {
+        return src.savedata(st);
     }
 
-    @PostMapping("/get")
+    @GetMapping("/get")
     public List<StudentEntity> getdata() {
         return src.retdata;
     }
 
-    @PutMapping("/{id}")
-    public NewFileEntity update(
-            @PathVariable Long id,
-            @RequestBody NewFileEntity file) {
-        return service.update(id, file);
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
+    @GetMapping("/getid/{id}")
+    public StudentEntity getidval(@PathVariable int id) {
+        return src.id(id);
     }
 }
