@@ -30,6 +30,6 @@ public class NewFileServiceImpl implements NewFileService{
     }
     @Override
     public void delete(Long id){
-        rep.delete(Long id);// remove the column id
+        rep.deleteById(id);// remove the column id
     }
 }
