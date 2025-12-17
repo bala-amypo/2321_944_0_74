@@ -5,17 +5,18 @@ import java.time.LocalDate;
 
 public class StudentEntity {
     private String name;
-    private int id;
-    private LocalDate dob;
+    @id
+    private Long id;
+    @column(name=unique)
     private String email;
-    private float cgpa;
-
+    private String password;
+    private String role;
     public StudentEntity(String name, int id, LocalDate dob, String email, float cgpa) {
         this.name = name;
         this.id = id;
-        this.dob = dob;
         this.email = email;
-        this.cgpa = cgpa;
+        this.password = password;
+        this.role=role;
     }
 
     public StudentEntity(){
