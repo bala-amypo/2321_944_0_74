@@ -28,18 +28,12 @@ public class StudentEntity {
     public void setName(String name) {
         this.name = name;
     }
-    public int getId() {
+    public Long getId() {
         return id;
     }
     
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-    public LocalDate getDob() {
-        return dob;
-    }
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
     }
     public String getEmail() {
         return email;
@@ -47,11 +41,16 @@ public class StudentEntity {
     public void setEmail(String email) {
         this.email = email;
     }
-    public float getCgpa() {
-        return cgpa;
+    public String getRole() {
+        return role;
     }
-    public void setCgpa(float cgpa) {
-        this.cgpa = cgpa;
+    public void setRole(String role) {
+        this.role = role;
     }
-    
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
