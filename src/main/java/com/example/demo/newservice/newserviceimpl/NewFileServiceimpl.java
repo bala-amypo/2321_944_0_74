@@ -8,16 +8,22 @@ public class NewFileServiceImpl implements NewFileService{
     public NewFileServiceImpl(NewFileRepo rep)
     @Override
     public NewFileEntity savedata(NewFileEntity newfile){
-
+        this.rep=rep;
     }
     @Override
     public NewFileEntity getidval(Long id){
-
+        return rep.save(newfile);//post
     }
     @Override
     public List<NewFileEntity> getall(){
+        
+    }
+    @Override
+    public NewFileEntity update(Long id,NewFileEntity newfile){
 
     }
     @Override
-    public NewFileEntity update(Long id,NewFileEntity newfile)
+    public void delete(Long id){
+
+    }
 }
