@@ -4,31 +4,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-import com.example.demo.entity.Studententity;
+import org.springframework.stereotype.service;
+import com.example.demo.entity.StudentEntity;
 
 @Service
-public class Studentservice {
-    Map<Integer,Studententity> mp= new HashMap<>();
+public class StudentService {
+    Map<Integer,StudentEntity> mp= new HashMap<>();
 
-    public Studententity savedata(Studententity st){
+    public StudentEntity savedata(StudentEntity st){
         mp.put(st.getId(),st);
         return st;
     }
 
-    public List<Studententity> retdata() {
+    public List<StudentEntity> retdata() {
         return new ArrayList<>(mp.values());
     }
 
-    public Studententity id(int id) {
+    public StudentEntity id(int id) {
         return mp.get(id);
     }
 
-     public Studententity updateStudent(int id, Studententity st) {
+     public StudentEntity updateStudent(int id, StudentEntity st) {
         return mp.replace(id,st);
      }
 
-    public Studententity deleteStudent(int id) {
+    public StudentEntity deleteStudent(int id) {
         return mp.remove(id);
     }
 
