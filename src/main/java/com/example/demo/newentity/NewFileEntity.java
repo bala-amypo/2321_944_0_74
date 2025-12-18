@@ -1,41 +1,56 @@
-package com.example.demo.newentity;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+package com.example.demo.entity;
 
-public class NewFileEntity{
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-    @NotBlank(message = "should not contain spaces")
-    @column(unique=true)
+import java.time.LocalDate;
+
+
+public class StudentEntity {
     private String name;
+    @id
+    private Long id;
     @column(name=unique)
-    @NotBlank(message = "no blank allowed")
-    @Email(message = "invalid format")
     private String email;
-    public NewFileEntity(Long id, @NotBlank(message="should not contain spaces") String name,@NotBlank(message="no blank allowed") @Email(message="invalid format") String email) {
-        this.id=id;
-        this.name=name;
-        this.email=email;
+    private String password;
+    private String role;
+    public StudentEntity(String name, int id, LocalDate dob, String email, float cgpa) {
+        this.name = name;
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.role=role;
     }
-    public NewFileEntity(){
+
+    public StudentEntity(){
+
     }
-    public Long getId(){
-        return id;
-    }
-    public void setId(Long id){
-        this.id=id;
-    }
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public void setName(String name){
-        this.name=name;
+    public void setName(String name) {
+        this.name = name;
     }
-    public String getEmail(){
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public String getEmail() {
         return email;
     }
-    public void  setEmail(String email){
-        this.email=email;
+    public void setEmail(String email) {
+        this.email = email;
     }
-} 
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
