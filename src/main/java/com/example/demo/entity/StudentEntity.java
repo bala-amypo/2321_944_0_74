@@ -2,7 +2,7 @@ package com.example.demo.entity;
 
 
 
-public class Studententity {
+public class StudentEntity {
    
     private String name;
     private int id;
