@@ -40,7 +40,7 @@ public class StudentEntity {
         this.cgpa = cgpa;
     }
 
-    public Studententity() {
+    public StudentEntity() {
     }
     
 }
