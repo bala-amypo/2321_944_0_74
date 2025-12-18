@@ -22,12 +22,13 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(@Valid @RequestBodyStudent service) {
-        return new ResponseEntity<>(service.saveStudent(student),HttpStatus.CREATED);
+    public ResponseEntity<Student> createStudent(@Valid @RequestBody Student student) {
+        Student savedStudent = service.saveStudent(student);
+        return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public List<NewfileEntity> getall() {
+    public List<NewfileEntity> getAll() {
         return service.getall();
     }
 
@@ -37,14 +38,15 @@ public class StudentController {
     }
 
     @PutMapping("/{id}")
-    public NewfileEntity updateStudent(@PathVariable Long id,
-    @Valid @RequestBody Student student) {
+    public Student updateStudent(
+            @PathVariable Long id,
+            @Valid @RequestBody Student student) {
         return service.update(id, student);
     }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
-    //     service.deleteStudent(id);
-    //     return ResponseEntity.ok("Student deleted successfully");
-    // }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
+        service.deleteStudent(id);
+        return ResponseEntity.ok("Student deleted successfully");
+    }
 }
