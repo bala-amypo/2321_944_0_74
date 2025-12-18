@@ -1,29 +1,35 @@
 package com.example.demo.service;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import java.util.*;
 import org.springframework.stereotype.Service;
-import com.example.demo.entity.StudentEntity;
+import com.example.demo.entity.Studententity;
+
 @Service
-public class StudentService {
-Map<Integer,StudentEntity> mp=new HashMap<>();
-    public StudentEntity savedata(Studententity st){
+public class Studentservice {
+    Map<Integer,Studententity> mp= new HashMap<>();
+
+    public Studententity savedata(Studententity st){
         mp.put(st.getId(),st);
         return st;
     }
-    public List<StudentEntity> retdata() {
-         return new ArrayList<>(mp.values());
+
+    public List<Studententity> retdata() {
+        return new ArrayList<>(mp.values());
     }
-    public StudentEntity id(int id) {
-        
-       // throw new UnsupportedOperationException("Unimplemented method 'id'");
-       return mp.get(id);
+
+    public Studententity id(int id) {
+        return mp.get(id);
     }
-   
-    public StudentEntity updateStudent(int id, StudentEntity st) {
-     mp.replace(id,st);
-     return mp.get(id);
+
+     public Studententity updateStudent(int id, Studententity st) {
+        return mp.replace(id,st);
+     }
+
+    public Studententity deleteStudent(int id) {
+        return mp.remove(id);
     }
-    public StudentEntity deleteStudent(int id) {
-       return mp.remove(id);
-    }
+
 }
