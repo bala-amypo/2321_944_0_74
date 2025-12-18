@@ -30,6 +30,6 @@ public class StudentEntity {
         this.id = id;
         this.email = email;
     }
-    public Studententity() {
+    public StudentEntity() {
     }
 }
